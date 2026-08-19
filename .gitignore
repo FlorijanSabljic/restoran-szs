@@ -1,0 +1,27 @@
+# Operacijski sustav
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Uređivači
+.vscode/
+.idea/
+*.swp
+
+# Ovisnosti i build (za slučaj da projekt kasnije dobije build korak)
+node_modules/
+dist/
+build/
+target/
+
+# Okolina — API ključevi i Supabase pristupni podaci nikad u repozitorij
+.env
+.env.local
+*.local
+
+# Logovi
+*.log
+npm-debug.log*
+
+# Postavke alata koje se tiču samo mog računala, ne projekta
+.claude/

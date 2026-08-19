@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Dizajn sustav — sve vrijednosti na jednom mjestu.
+   Boje se u ostatku koda koriste isključivo preko semantičkih imena
+   (--boja-pozadina, --boja-akcent), nikad doslovnim hex vrijednostima.
+   Tako promjena palete ostaje izmjena u jednoj datoteci.
+   ========================================================================== */
+
+:root {
+  /* --- Sirova paleta ---------------------------------------------------- */
+  --ugljen-900: #100c08;
+  --ugljen-800: #16110c;
+  --ugljen-700: #1e1811;
+  --ugljen-600: #2a2219;
+  --ugljen-500: #3a3025;
+
+  --zlatna-400: #d9b46a;
+  --zlatna-500: #c69749;
+  --zlatna-600: #a97c33;
+
+  --krem-100: #f5efe4;
+  --krem-200: #e3d9c8;
+  --krem-300: #b8ab97;
+
+  --crvena-500: #c4553d; /* samo za greške u formi */
+  --zelena-500: #6f8f5f; /* samo za potvrdu slanja */
+
+  /* --- Semantička imena -------------------------------------------------- */
+  --boja-pozadina: var(--ugljen-900);
+  --boja-ploha: var(--ugljen-800);
+  --boja-ploha-hi: var(--ugljen-700);
+  --boja-rub: var(--ugljen-600);
+  --boja-rub-hi: var(--ugljen-500);
+
+  --boja-tekst: var(--krem-100);
+  --boja-tekst-prigusen: var(--krem-300);
+  --boja-akcent: var(--zlatna-400);
+  --boja-akcent-tamni: var(--zlatna-600);
+
+  --boja-greska: var(--crvena-500);
+  --boja-uspjeh: var(--zelena-500);
+
+  /* --- Tipografija ------------------------------------------------------- */
+  --font-naslov: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+  --font-tekst: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Fluidna skala: clamp() drži naslove čitkima od 320px do 1440px
+     bez skokova na breakpointima. */
+  --tekst-xs: 0.78rem;
+  --tekst-sm: 0.875rem;
+  --tekst-base: 1rem;
+  --tekst-lg: clamp(1.05rem, 0.99rem + 0.3vw, 1.2rem);
+  --tekst-xl: clamp(1.35rem, 1.2rem + 0.75vw, 1.75rem);
+  --tekst-2xl: clamp(1.75rem, 1.45rem + 1.5vw, 2.75rem);
+  --tekst-3xl: clamp(2.25rem, 1.6rem + 3.2vw, 4.5rem);
+
+  --razmak-slova-nadnaslov: 0.22em;
+
+  /* --- Prostor ----------------------------------------------------------- */
+  --p-1: 0.25rem;
+  --p-2: 0.5rem;
+  --p-3: 0.75rem;
+  --p-4: 1rem;
+  --p-6: 1.5rem;
+  --p-8: 2rem;
+  --p-12: 3rem;
+  --p-16: 4rem;
+  --p-24: 6rem;
+
+  /* Vertikalni razmak sekcija raste s ekranom */
+  --p-sekcija: clamp(4rem, 2.5rem + 7vw, 8rem);
+
+  /* --- Layout ------------------------------------------------------------ */
+  --sirina-sadrzaja: 1200px;
+  --sirina-teksta: 62ch; /* granica čitljivosti odlomka */
+  --rub-stranice: clamp(1.25rem, 5vw, 3rem);
+  --visina-navigacije: 4.5rem;
+
+  /* --- Ostalo ------------------------------------------------------------ */
+  --radijus-sm: 2px;
+  --radijus: 4px;
+  --radijus-lg: 8px;
+
+  --sjena-kartica: 0 18px 40px -24px rgb(0 0 0 / 0.75);
+
+  --prijelaz-brz: 160ms ease;
+  --prijelaz: 280ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  --prijelaz-spor: 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --z-navigacija: 100;
+  --z-izbornik: 200;
+  --z-lightbox: 300;
+}

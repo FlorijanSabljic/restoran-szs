@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<!-- Klasu no-js uklanja main.js. Bez JavaScripta sekcije ostaju vidljive
+     jer se animacija otkrivanja nikad ne pokrene. -->
+<html lang="hr" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stara Zagrebačka Škola — restoran i catering, Zagreb</title>
+    <meta
+      name="description"
+      content="Restoran i catering Stara Zagrebačka Škola u Zagrebu. Domaća kuhinja od 1998., dnevni meniji, catering za vjenčanja i domjenke, sala za evente i slastičarnica. Kombolova 2a."
+    />
+    <meta name="theme-color" content="#100c08" />
+    <link rel="canonical" href="https://restoran-starazagrebackaskola.com/" />
+
+    <!-- Open Graph — kako izgleda kad se poveznica podijeli -->
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:locale" content="hr_HR" />
+    <meta
+      property="og:title"
+      content="Stara Zagrebačka Škola — restoran i catering, Zagreb"
+    />
+    <meta
+      property="og:description"
+      content="Domaća kuhinja i tradicija od 1998. Dnevni meniji, catering, sala za evente i slastičarnica."
+    />
+
+    <link rel="icon" href="data:," />
+
+    <!-- Uklanja se odmah, prije prvog iscrtavanja — da elementi koje će
+         animacija otkriti ne bljesnu vidljivi pa nestanu. -->
+    <script>
+      document.documentElement.classList.remove("no-js");
+    </script>
+
+    <!-- Fontovi: preconnect prije linka da se DNS i TLS ne čekaju serijski -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap"
+    />
+
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+
+    <!-- Strukturirani podaci — pomažu da se restoran ispravno prikaže u tražilici -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Stara Zagrebačka Škola",
+        "description": "Restoran i catering s domaćom kuhinjom, u Zagrebu od 1998.",
+        "servesCuisine": "Hrvatska, domaća kuhinja",
+        "telephone": "+385 1 6603 913",
+        "foundingDate": "1998",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Kombolova 2a",
+          "addressLocality": "Zagreb",
+          "addressCountry": "HR"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="preskoci" href="#sadrzaj">Preskoči na sadržaj</a>
+
+    <!-- =====================================================================
+         Navigacija
+         ================================================================== -->
+    <header class="navigacija" id="navigacija">
+      <div class="navigacija__unutra sadrzaj">
+        <a class="logo" href="#pocetak" aria-label="Stara Zagrebačka Škola, početak stranice">
+          <span class="logo__ime">Stara Zagrebačka Škola</span>
+          <span class="logo__oznaka">restoran &middot; catering</span>
+        </a>
+
+        <nav class="navigacija__linkovi" id="izbornik" aria-label="Glavna navigacija">
+          <a href="#o-nama">O nama</a>
+          <a href="#ponuda">Ponuda</a>
+          <a href="#galerija">Galerija</a>
+          <a href="#kontakt">Kontakt</a>
+          <a class="gumb gumb--puni navigacija__cta" href="#kontakt">Rezervirajte stol</a>
+        </nav>
+
+        <button
+          class="hamburger"
+          id="hamburger"
+          type="button"
+          aria-label="Otvori izbornik"
+          aria-expanded="false"
+          aria-controls="izbornik"
+        >
+          <span class="hamburger__crta"></span>
+          <span class="hamburger__crta"></span>
+          <span class="hamburger__crta"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="sadrzaj">
+      <!-- ===================================================================
+           Hero
+           ================================================================ -->
+      <section class="hero" id="pocetak">
+        <div class="hero__pozadina" aria-hidden="true"></div>
+
+        <div class="hero__unutra sadrzaj">
+          <p class="nadnaslov hero__nadnaslov">Zagreb &middot; od 1998.</p>
+
+          <h1 class="hero__naslov">
+            Domaći okusi koji se<br />
+            pamte generacijama
+          </h1>
+
+          <p class="hero__podnaslov">
+            Više od dvadeset pet godina kuhamo ono što znamo najbolje — jela
+            hrvatske kuhinje, pripremljena od svježih namirnica, u prostoru
+            koji prima dvjesto gostiju.
+          </p>
+
+          <div class="hero__akcije">
+            <a class="gumb gumb--puni" href="#kontakt">Rezervirajte stol</a>
+            <a class="gumb gumb--obrub" href="#ponuda">Pogledajte ponudu</a>
+          </div>
+
+          <ul class="hero__istaknuto">
+            <li>Dnevni meniji</li>
+            <li>Sala za evente</li>
+            <li>Besplatan parking</li>
+          </ul>
+        </div>
+
+        <a class="hero__strelica" href="#o-nama" aria-label="Idi na sekciju O nama">
+          <span class="hero__strelica-crta" aria-hidden="true"></span>
+        </a>
+      </section>
+
+      <!-- ===================================================================
+           O nama
+           ================================================================ -->
+      <section class="sekcija o-nama" id="o-nama">
+        <div class="sadrzaj o-nama__mreza">
+          <div class="o-nama__tekst" data-otkrij>
+            <p class="nadnaslov">O nama</p>
+            <h2>Tradicija koja ne ide na prečac</h2>
+
+            <p>
+              Restoran Stara Zagrebačka Škola otvoren je 1998. godine i od tada
+              se drži istog načela — dobro jelo traži vrijeme, poštene namirnice
+              i ruku koja zna što radi. Juhe se kuhaju od jutra, meso se pripravlja
+              po receptima koji su stariji od nas, a kolači se peku svaki dan.
+            </p>
+
+            <p>
+              Prostor je otvorenog tipa, klimatiziran i decentno uređen, s
+              dvjestotinjak sjedećih mjesta i besplatnim parkingom pred vratima.
+              Jednako smo spremni za brz poslovni ručak i za vjenčanje koje traje
+              do jutra.
+            </p>
+
+            <a class="poveznica-strelica" href="#kontakt">
+              Javite nam se
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+
+          <figure class="o-nama__slika placeholder placeholder--portret" data-otkrij>
+            <span class="placeholder__oznaka">Interijer restorana</span>
+            <figcaption class="samo-za-citace">
+              Fotografija unutrašnjosti restorana Stara Zagrebačka Škola
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="sadrzaj">
+          <dl class="brojke" data-otkrij>
+            <div class="brojke__stavka">
+              <dt>Godina osnutka</dt>
+              <dd>1998.</dd>
+            </div>
+            <div class="brojke__stavka">
+              <dt>Sjedećih mjesta</dt>
+              <dd>200</dd>
+            </div>
+            <div class="brojke__stavka">
+              <dt>Parking</dt>
+              <dd>Besplatan</dd>
+            </div>
+            <div class="brojke__stavka">
+              <dt>Kolači</dt>
+              <dd>Svaki dan</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Ponuda
+           ================================================================ -->
+      <section class="sekcija ponuda" id="ponuda">
+        <div class="sadrzaj">
+          <div class="zaglavlje-sekcije zaglavlje-sekcije--sredina" data-otkrij>
+            <p class="nadnaslov nadnaslov--sredina">Ponuda</p>
+            <h2>Tri stvari koje radimo dobro</h2>
+            <p>
+              Svakodnevni ručak, proslava koja se pamti i slastica uz kavu —
+              sve na istoj adresi.
+            </p>
+          </div>
+
+          <div class="kartice">
+            <article class="kartica" data-otkrij>
+              <figure class="kartica__slika placeholder">
+                <span class="placeholder__oznaka">Dnevni meni</span>
+              </figure>
+              <div class="kartica__tijelo">
+                <h3>Restoran</h3>
+                <p>
+                  Povoljni kompletni dnevni meniji i gotova jela hrvatske
+                  kuhinje. Juha, glavno jelo i prilog — onako kako se ručak
+                  nekad podrazumijevao.
+                </p>
+                <ul class="kartica__popis">
+                  <li>Dnevni meniji i gotova jela</li>
+                  <li>Jela s roštilja i domaći specijaliteti</li>
+                  <li>Kava i svježi kolači</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="kartica" data-otkrij>
+              <figure class="kartica__slika placeholder">
+                <span class="placeholder__oznaka">Catering i sala</span>
+              </figure>
+              <div class="kartica__tijelo">
+                <h3>Catering i eventi</h3>
+                <p>
+                  Vjenčanja, krstitke, karmine, rođendani, poslovni ručkovi i
+                  domjenci. Dolazimo k vama ili vas primamo u vlastitoj sali za
+                  dvjesto gostiju.
+                </p>
+                <ul class="kartica__popis">
+                  <li>Sala za do 200 uzvanika</li>
+                  <li>Meniji dogovoreni prema prigodi</li>
+                  <li>Dostava i posluživanje na lokaciji</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="kartica" data-otkrij>
+              <figure class="kartica__slika placeholder">
+                <span class="placeholder__oznaka">Slastice</span>
+              </figure>
+              <div class="kartica__tijelo">
+                <h3>Slastičarnica</h3>
+                <p>
+                  Kolači se peku svaki dan u vlastitoj slastičarnici. Torte za
+                  proslave pripremamo po narudžbi, uz dogovor nekoliko dana
+                  unaprijed.
+                </p>
+                <ul class="kartica__popis">
+                  <li>Kremšnite i Jelačić šnite</li>
+                  <li>Sacher, Schwarzwald, tiramisu</li>
+                  <li>Torte po narudžbi</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Galerija
+           ================================================================ -->
+      <section class="sekcija galerija" id="galerija">
+        <div class="sadrzaj">
+          <div class="zaglavlje-sekcije zaglavlje-sekcije--sredina" data-otkrij>
+            <p class="nadnaslov nadnaslov--sredina">Galerija</p>
+            <h2>Pogled u prostor i tanjur</h2>
+            <p>Nekoliko trenutaka iz restorana, sale i slastičarnice.</p>
+          </div>
+
+          <!-- Placeholderi: kad stignu prave fotografije, svaka figura postaje
+               <img src="..." alt="..." loading="lazy"> uz isti omjer stranica. -->
+          <div class="galerija__mreza" id="galerija-mreza">
+            <figure
+              class="galerija__stavka placeholder galerija__stavka--velika"
+              data-otkrij
+              data-opis="Glavna blagovaonica restorana"
+              tabindex="0"
+              role="button"
+              aria-label="Otvori sliku: Glavna blagovaonica restorana"
+            >
+              <span class="placeholder__oznaka">Blagovaonica</span>
+            </figure>
+
+            <figure
+              class="galerija__stavka placeholder"
+              data-otkrij
+              data-opis="Dnevni meni serviran na stolu"
+              tabindex="0"
+              role="button"
+              aria-label="Otvori sliku: Dnevni meni serviran na stolu"
+            >
+              <span class="placeholder__oznaka">Dnevni meni</span>
+            </figure>
+
+            <figure
+              class="galerija__stavka placeholder"
+              data-otkrij
+              data-opis="Sala uređena za vjenčanje"
+              tabindex="0"
+              role="button"
+              aria-label="Otvori sliku: Sala uređena za vjenčanje"
+            >
+              <span class="placeholder__oznaka">Sala za evente</span>
+            </figure>
+
+            <figure
+              class="galerija__stavka placeholder"
+              data-otkrij
+              data-opis="Kremšnite iz vlastite slastičarnice"
+              tabindex="0"
+              role="button"
+              aria-label="Otvori sliku: Kremšnite iz vlastite slastičarnice"
+            >
+              <span class="placeholder__oznaka">Kremšnite</span>
+            </figure>
+
+            <figure
+              class="galerija__stavka placeholder"
+              data-otkrij
+              data-opis="Roštilj i domaći specijaliteti"
+              tabindex="0"
+              role="button"
+              aria-label="Otvori sliku: Roštilj i domaći specijaliteti"
+            >
+              <span class="placeholder__oznaka">S roštilja</span>
+            </figure>
+
+            <figure
+              class="galerija__stavka placeholder galerija__stavka--siroka"
+              data-otkrij
+              data-opis="Terasa i ulaz u restoran"
+              tabindex="0"
+              role="button"
+              aria-label="Otvori sliku: Terasa i ulaz u restoran"
+            >
+              <span class="placeholder__oznaka">Terasa</span>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           Kontakt i rezervacija
+           ================================================================ -->
+      <section class="sekcija kontakt" id="kontakt">
+        <div class="sadrzaj kontakt__mreza">
+          <div class="kontakt__podaci" data-otkrij>
+            <p class="nadnaslov">Kontakt</p>
+            <h2>Rezervirajte stol</h2>
+            <p class="kontakt__uvod">
+              Ispunite obrazac i javit ćemo se s potvrdom. Za rezervacije istog
+              dana i veće grupe najbolje je nazvati.
+            </p>
+
+            <dl class="kontakt__popis">
+              <div class="kontakt__stavka">
+                <dt>Adresa</dt>
+                <dd>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&amp;query=Kombolova+2a+Zagreb"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Kombolova 2a, 10000 Zagreb
+                  </a>
+                </dd>
+              </div>
+
+              <div class="kontakt__stavka">
+                <dt>Telefon</dt>
+                <dd><a href="tel:+38516603913">01 6603 913</a></dd>
+              </div>
+
+              <div class="kontakt__stavka">
+                <dt>Parking</dt>
+                <dd>Besplatan, pred restoranom</dd>
+              </div>
+
+              <div class="kontakt__stavka">
+                <dt>Kapacitet</dt>
+                <dd>200 sjedećih mjesta</dd>
+              </div>
+            </dl>
+
+            <figure class="kontakt__karta placeholder">
+              <span class="placeholder__oznaka">Karta &middot; Kombolova 2a</span>
+            </figure>
+          </div>
+
+          <!-- novalidate: preglednikove poruke zamjenjujemo vlastitima na hrvatskom -->
+          <form class="forma" id="forma-rezervacije" novalidate data-otkrij>
+            <div class="forma__red">
+              <div class="polje">
+                <label for="ime">Ime i prezime <span aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="ime"
+                  name="ime"
+                  autocomplete="name"
+                  required
+                  aria-describedby="greska-ime"
+                />
+                <p class="polje__greska" id="greska-ime" role="alert"></p>
+              </div>
+
+              <div class="polje">
+                <label for="telefon">Telefon <span aria-hidden="true">*</span></label>
+                <input
+                  type="tel"
+                  id="telefon"
+                  name="telefon"
+                  autocomplete="tel"
+                  placeholder="npr. 091 234 5678"
+                  required
+                  aria-describedby="greska-telefon"
+                />
+                <p class="polje__greska" id="greska-telefon" role="alert"></p>
+              </div>
+            </div>
+
+            <div class="polje">
+              <label for="email">E-mail</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                aria-describedby="greska-email"
+              />
+              <p class="polje__greska" id="greska-email" role="alert"></p>
+            </div>
+
+            <div class="forma__red forma__red--tri">
+              <div class="polje">
+                <label for="datum">Datum <span aria-hidden="true">*</span></label>
+                <input
+                  type="date"
+                  id="datum"
+                  name="datum"
+                  required
+                  aria-describedby="greska-datum"
+                />
+                <p class="polje__greska" id="greska-datum" role="alert"></p>
+              </div>
+
+              <div class="polje">
+                <label for="vrijeme">Vrijeme <span aria-hidden="true">*</span></label>
+                <input
+                  type="time"
+                  id="vrijeme"
+                  name="vrijeme"
+                  step="900"
+                  required
+                  aria-describedby="greska-vrijeme"
+                />
+                <p class="polje__greska" id="greska-vrijeme" role="alert"></p>
+              </div>
+
+              <div class="polje">
+                <label for="osobe">Osoba <span aria-hidden="true">*</span></label>
+                <select id="osobe" name="osobe" required aria-describedby="greska-osobe">
+                  <option value="1">1</option>
+                  <option value="2" selected>2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="8">7 – 8</option>
+                  <option value="12">9 – 12</option>
+                  <option value="20">Više od 12</option>
+                </select>
+                <p class="polje__greska" id="greska-osobe" role="alert"></p>
+              </div>
+            </div>
+
+            <div class="polje">
+              <label for="prigoda">Prigoda</label>
+              <select id="prigoda" name="prigoda">
+                <option value="">Običan obrok</option>
+                <option value="rodendan">Rođendan</option>
+                <option value="vjencanje">Vjenčanje</option>
+                <option value="krstitke">Krstitke</option>
+                <option value="poslovni-rucak">Poslovni ručak</option>
+                <option value="domjenak">Domjenak</option>
+                <option value="karmine">Karmine</option>
+              </select>
+            </div>
+
+            <div class="polje">
+              <label for="napomena">Napomena</label>
+              <textarea
+                id="napomena"
+                name="napomena"
+                rows="4"
+                placeholder="Alergije, dječja stolica, željeni stol…"
+              ></textarea>
+            </div>
+
+            <!-- Zamka za robote: pravi korisnik ovo polje ne vidi ni ne ispunjava -->
+            <div class="polje polje--skriveno" aria-hidden="true">
+              <label for="web">Ne ispunjavajte ovo polje</label>
+              <input type="text" id="web" name="web" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <button class="gumb gumb--puni forma__posalji" type="submit">
+              Pošalji zahtjev
+            </button>
+
+            <p class="forma__poruka" id="forma-poruka" role="status" aria-live="polite"></p>
+
+            <p class="forma__napomena">
+              Zahtjev nije potvrđena rezervacija. Javit ćemo se telefonom ili
+              e-mailom radi potvrde.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================================
+         Podnožje
+         ================================================================== -->
+    <footer class="podnozje">
+      <div class="sadrzaj podnozje__unutra">
+        <div>
+          <p class="podnozje__ime">Stara Zagrebačka Škola</p>
+          <p class="podnozje__oznaka">Restoran i catering &middot; Zagreb, od 1998.</p>
+        </div>
+
+        <address class="podnozje__kontakt">
+          Kombolova 2a, Zagreb<br />
+          <a href="tel:+38516603913">01 6603 913</a>
+        </address>
+
+        <p class="podnozje__sitno">
+          &copy; <span id="godina">2026</span> Stara Zagrebačka Škola<br />
+          Portfolio projekt &mdash; redizajn u izradi.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Lightbox za galeriju; sadržaj se popunjava iz JS-a -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Prikaz slike" hidden>
+      <button class="lightbox__zatvori" id="lightbox-zatvori" type="button" aria-label="Zatvori prikaz">
+        &times;
+      </button>
+      <figure class="lightbox__okvir placeholder" id="lightbox-okvir">
+        <span class="placeholder__oznaka" id="lightbox-opis"></span>
+      </figure>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

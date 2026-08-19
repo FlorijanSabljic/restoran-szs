@@ -1,0 +1,15 @@
+# Novi red se u repozitoriju uvijek pohranjuje kao LF, a u radnom direktoriju
+# ga git prilagodi sustavu. Bez ovoga Windows commita CRLF, pa svaka datoteka
+# izgleda kao da je cijela izmijenjena kad je otvori netko na Linuxu ili macOS-u.
+* text=auto eol=lf
+
+# Binarne datoteke se ne diraju — pretvaranje novih redova bi ih pokvarilo.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary

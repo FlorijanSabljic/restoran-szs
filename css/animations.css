@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Animacije.
+
+   Načelo: sve što se animira mora biti čitljivo i bez animacije. Elementi s
+   [data-otkrij] dobivaju klasu .je-vidljiv iz main.js preko IntersectionObservera.
+   Ako JavaScript ne uspije, .no-js fallback ih ostavlja vidljivima (klasu no-js
+   uklanja main.js prvom linijom).
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+[data-otkrij] {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity var(--prijelaz-spor), transform var(--prijelaz-spor);
+  /* Nagovještaj pregledniku da će se ova svojstva mijenjati */
+  will-change: opacity, transform;
+}
+
+[data-otkrij].je-vidljiv {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* Kartice i stavke galerije ulaze jedna za drugom; kašnjenje postavlja
+   main.js kroz --kasnjenje da se ne piše po jedno pravilo za svaki element. */
+[data-otkrij] {
+  transition-delay: var(--kasnjenje, 0ms);
+}
+
+/* --- Ulazak hero sekcije --------------------------------------------------
+   Hero se ne oslanja na observer jer je odmah u vidokrugu — animira se
+   pri učitavanju. */
+
+.hero__nadnaslov,
+.hero__naslov,
+.hero__podnaslov,
+.hero__akcije,
+.hero__istaknuto {
+  animation: uroni 900ms cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+}
+
+.hero__nadnaslov {
+  animation-delay: 120ms;
+}
+.hero__naslov {
+  animation-delay: 220ms;
+}
+.hero__podnaslov {
+  animation-delay: 360ms;
+}
+.hero__akcije {
+  animation-delay: 480ms;
+}
+.hero__istaknuto {
+  animation-delay: 600ms;
+}
+
+@keyframes uroni {
+  from {
+    opacity: 0;
+    transform: translateY(1.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Strelica na dnu hero sekcije diskretno pulsira */
+.hero__strelica-crta {
+  animation: klizi 2.4s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes klizi {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* --- Bez JavaScripta ------------------------------------------------------ */
+
+.no-js [data-otkrij] {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Poštovanje korisnikove postavke --------------------------------------
+   Tko je isključio animacije u sustavu, dobiva stranicu bez ijednog pomaka. */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-otkrij] {
+    opacity: 1;
+    transform: none;
+  }
+}
